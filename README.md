@@ -1,1 +1,2 @@
 # proyecto
+El proyecto se basa en un gestor de gastos personales. Consta en un sistema en el cual puedes agregar tus ingresos,gastos y ver tu balance, y a la vez poder observar tu historial. Considero que es interesante ya que hoy en día un gran problema en la sociedad es la falta de conciencia en los gastos, y también considero que esta herramienta puede ser una muy buena manera de empezar con la programación, ya que depende de mucha interacción con el usuario.
