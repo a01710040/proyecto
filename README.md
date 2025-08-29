@@ -10,4 +10,4 @@ Al momento de ejecutar el programa, se despliega un menú con una lista de opcio
 4. Ver historial (despliega los movimientos registrados junto con su concepto)
 5. Salir (saldrá del programa)
 
-Para el codigo puedo usar ciclos while, cuando el usuario coloque datos númericos erroneos(negativos), y así arrojarle que coloque un número positivo. También lo puedo usar para volver a desplegar el menú de opciones hasta que elija salir. Puedo usar ciclos for, a la hora de que el usuario me pida ver el historial y con un ciclo for le puedo arrojar sus gastos con el concepto de cada uno.
+Para el codigo puedo usar ciclos while, para hacer que los números que ingrese el usuario se vayan sumando, y cuando elija salir arrojarle su total. También lo puedo usar para volver a desplegar el menú de opciones hasta que también elija salir. Puedo usar ciclos for, a la hora de que el usuario me pida ver el historial y con un ciclo for le puedo arrojar sus gastos con el concepto de cada uno.
