@@ -1,4 +1,4 @@
-#Calculadora Financiera
+#Calculadora Financiera (Versión con formato de dos decimales)
 
 lista_ingresos = []
 lista_egresos = []
@@ -6,22 +6,24 @@ lista_egresos = []
 def sumar_ingresos(ingreso_total):
     ingreso2 = float(input("Introduce un ingreso (usa '0' para terminar): "))
     while ingreso2 > 0:
+        descripcion = input("Añade una descripción para este ingreso: ")
         
-        lista_ingresos.append(ingreso2)
-      
+        lista_ingresos.append([ingreso2, descripcion])
+        
         ingreso_total = ingreso_total + ingreso2
-        print("El total de ingresos ahora es: $", ingreso_total)
+        print(f"El total de ingresos ahora es: ${ingreso_total:.2f}")
         ingreso2 = float(input("Introduce otro ingreso (usa '0' para terminar): "))
     return ingreso_total
 
 def sumar_egresos(egreso_total):
     egreso2 = float(input("Introduce un egreso/gasto (usa '0' para terminar): "))
     while egreso2 > 0:
-        
-        lista_egresos.append(egreso2)
-        
+        descripcion = input("Añade una descripción para este egreso/gasto: ")
+
+        lista_egresos.append([egreso2, descripcion])
+
         egreso_total = egreso_total + egreso2
-        print("El total de egresos ahora es: $", egreso_total)
+        print(f"El total de egresos ahora es: ${egreso_total:.2f}")
         egreso2 = float(input("Introduce otro egreso (usa '0' para terminar): "))
     return egreso_total
 
@@ -43,7 +45,30 @@ while menu > 0:
     else:
         print("ERROR: Opción no válida")
 
-print("\n    Resumen Detallado    ")
-print("Registro de ingresos:", lista_ingresos)
-print("Registro de egresos:", lista_egresos)
-print("Fin del programa, tus ingresos totales fueron de: $", ingreso_total, "y tus egresos totales fueron de: $", egreso_total, "tu balance actual es de: $", (ingreso_total - egreso_total))
+print("\n" + "="*30)
+print("      RESUMEN FINANCIERO")
+print("="*30)
+
+print("\n--- Detalle de Ingresos ---")
+if not lista_ingresos:
+    print("No se registraron ingresos.")
+else:
+    for transaccion in lista_ingresos:
+        monto = transaccion[0]
+        descripcion = transaccion[1]
+        print(f"- ${monto:.2f} ({descripcion})")
+
+print("\n--- Detalle de Egresos ---")
+if not lista_egresos:
+    print("No se registraron egresos.")
+else:
+    for transaccion in lista_egresos:
+        monto = transaccion[0]
+        descripcion = transaccion[1]
+        print(f"- ${monto:.2f} ({descripcion})")
+
+print("\n------------------------------")
+print(f"Ingresos Totales:   ${ingreso_total:.2f}")
+print(f"Egresos Totales:    ${egreso_total:.2f}")
+print(f"Balance Actual:     ${(ingreso_total - egreso_total):.2f}")
+print("------------------------------")
