@@ -1,18 +1,14 @@
 # TC1028 Proyecto: Calculadora Financiera
 
 ## Contexto
-El proyecto se basa en un gestor de gastos personales.
-Consta en un sistema en el cual puedes agregar tus ingresos, registrar tus gastos y consultar tu balance, además de contar con un historial de tus movimientos. 
+Las habilidades financieras son super necesarias para el día a día. Saber cómo anotar tus ingresos, tus gastos y sacar un balance de todo ello hace que nuestra relación con el dinero sea más sencilla. Eso es lo que se proponen en este proyecto. Mediante el uso de Python reforzar las habilidades de contabilidad personal usando funciones, listas, bucles, condicionales y fechas como herramientas.
 
-Considero que es interesante porque, uno de los grandes problemas en la sociedad es la falta de conciencia a la hora del manejo de los gastos. Asimismo, pienso es una muy buena manera de iniciar con los códigos, ya que pide mucha interacción con el usuario.
-Al momento de ejecutar el programa, se despliega un menú con una lista de opciones:
-1. Agregar ingreso (se pedirá una cantidad númerica)
-2. Agregar gasto (se pedirá la cantidad númerica y concepto del gasto)
-3. Mostrar balance (suma todos los ingresos y resta todos los gastos)
-4. Ver historial (despliega los movimientos registrados junto con su concepto)
-5. Salir (saldrá del programa)
+Este programa es una herramienta sencilla que no guarda en un archivo (es decir, toda la información se pierde al cerrar la aplicación) pero que permite llevar un control durante la sesión de toda tu actividad económica y posteriormente obtener un balance de tus cuentas. Por lo menos, su fin es que el usuario aprenda a organizar la información, procesarla y presentar resultados a éste de una manera clara y sencilla.
 
-Para el codigo puedo usar ciclos while, para hacer que los números que ingrese el usuario se vayan sumando, y cuando elija salir arrojarle su total. También lo puedo usar para volver a desplegar el menú de opciones hasta que también elija salir. Puedo usar ciclos for, a la hora de que el usuario me pida ver el historial y con un ciclo for le puedo arrojar sus gastos con el concepto de cada uno.
+Se trata de un programa que funciona desde la consola, escrito en Python 3, que permite al usuario registrar ingresos y gastos, con su correspondiente descripción, y también fecha, que calcula el total de ingresos, total de gastos y saldo y que a su vez pone a disposición del usuario la consulta de cualquier resumen. Actualmente no guarda la información en un fichero (cada vez que se arranque la aplicación, esta empezará de nuevo sin información) aunque sí mantiene la información en memoria durante la ejecución.
+
+Finalmente, el programa nos muestra un resumen de todos los ingresos y gastos que hemos introducido, así como el balance final que representa la diferencia de ambos.
+
 
 ## Instrucciones
 Descargar el archivo y correc en terminal con:
