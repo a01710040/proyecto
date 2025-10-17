@@ -1,4 +1,6 @@
-#Calculadora Financiera (Versión con formato de dos decimales)
+#Calculadora Financiera
+
+from datetime import datetime
 
 lista_ingresos = []
 lista_egresos = []
@@ -8,7 +10,8 @@ def sumar_ingresos(ingreso_total):
     while ingreso2 > 0:
         descripcion = input("Añade una descripción para este ingreso: ")
         
-        lista_ingresos.append([ingreso2, descripcion])
+        fecha_actual = datetime.now().strftime("%Y-%m-%d")
+        lista_ingresos.append([ingreso2, descripcion, fecha_actual])
         
         ingreso_total = ingreso_total + ingreso2
         print(f"El total de ingresos ahora es: ${ingreso_total:.2f}")
@@ -20,7 +23,8 @@ def sumar_egresos(egreso_total):
     while egreso2 > 0:
         descripcion = input("Añade una descripción para este egreso/gasto: ")
 
-        lista_egresos.append([egreso2, descripcion])
+        fecha_actual = datetime.now().strftime("%Y-%m-%d")
+        lista_egresos.append([egreso2, descripcion, fecha_actual])
 
         egreso_total = egreso_total + egreso2
         print(f"El total de egresos ahora es: ${egreso_total:.2f}")
@@ -53,19 +57,15 @@ print("\n--- Detalle de Ingresos ---")
 if not lista_ingresos:
     print("No se registraron ingresos.")
 else:
-    for transaccion in lista_ingresos:
-        monto = transaccion[0]
-        descripcion = transaccion[1]
-        print(f"- ${monto:.2f} ({descripcion})")
+    for monto, descripcion, fecha in lista_ingresos:
+        print(f"- {fecha} | ${monto:.2f} ({descripcion})")
 
 print("\n--- Detalle de Egresos ---")
 if not lista_egresos:
     print("No se registraron egresos.")
 else:
-    for transaccion in lista_egresos:
-        monto = transaccion[0]
-        descripcion = transaccion[1]
-        print(f"- ${monto:.2f} ({descripcion})")
+    for monto, descripcion, fecha in lista_egresos:
+        print(f"- {fecha} | ${monto:.2f} ({descripcion})")
 
 print("\n------------------------------")
 print(f"Ingresos Totales:   ${ingreso_total:.2f}")
