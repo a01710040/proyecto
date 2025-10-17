@@ -23,3 +23,7 @@ python calculadora_financiera.py
 o abrir en Thonny y dar boton de play. 
 
 Seguir las instrucciones en pantalla para registrar movimientos o consultar el resumen final. El programa no utiliza bibliotecas externas, solo módulos estándar de Python 3.
+
+## Referencias API Python
+
+"datetime" (https://docs.python.org/3/library/datetime.html): se usa para obtener la fecha actual de cada gasto.
