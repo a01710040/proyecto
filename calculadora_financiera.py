@@ -1,7 +1,8 @@
 """
-Proyecto de Python: Calculadora Financiera Básica.
+Proyecto de Python: Calculadora Financiera.
 
-Este programa permite al usuario registrar transacciones de ingresos y egresos.
+
+Este programa permite al usuario registrar transacciones de ingresos/egresos.
 Calcula los totales y muestra un resumen detallado del balance final.
 Los datos se manejan en memoria y se muestran al finalizar la sesión.
 """
@@ -14,8 +15,9 @@ lista_egresos = []
 
 
 """
-================== FUNCIONES AUXILIARES DE TRANSACCIONES ======================
+================== FUNCIONES AUXILIARES DE TRANSACCIONES =====================
 """
+
 
 def obtener_fecha_actual():
     """
@@ -29,7 +31,7 @@ def obtener_fecha_actual():
 
 def procesar_transacciones(total_actual, lista_global, tipo_transaccion):
     """
-    Maneja el bucle para registrar múltiples transacciones (ingresos o egresos).
+    Maneja el bucle para registrar múltiples transacciones (ingresos/egresos).
     
     Recibe:
     - total_actual (float): El total acumulado antes de empezar.
@@ -39,9 +41,11 @@ def procesar_transacciones(total_actual, lista_global, tipo_transaccion):
     Devuelve:
     - float: El nuevo total actualizado con las transacciones añadidas.
     """
-    prompt_monto = f"Introduce un {tipo_transaccion} (usa '0.0' para terminar): "
+    prompt_monto = (f"Introduce un {tipo_transaccion} "
+                    f"(usa '0.0' para terminar): ")
     prompt_desc = f"Añade una descripción para este {tipo_transaccion}: "
-    prompt_otro = f"Introduce otro {tipo_transaccion} (usa '0.0' para terminar): "
+    prompt_otro = (f"Introduce otro {tipo_transaccion} "
+                   f"(usa '0.0' para terminar): ")
 
     monto = float(input(prompt_monto))
     
@@ -52,7 +56,10 @@ def procesar_transacciones(total_actual, lista_global, tipo_transaccion):
         lista_global.append([monto, descripcion, fecha_actual])
         
         total_actual += monto
-        print(f"El total de {tipo_transaccion}s ahora es: ${total_actual:.2f}")
+        
+        mensaje = (f"El total de {tipo_transaccion}s "
+                   f"ahora es: ${total_actual:.2f}")
+        print(mensaje)
         
         monto = float(input(prompt_otro))
         
@@ -62,6 +69,7 @@ def procesar_transacciones(total_actual, lista_global, tipo_transaccion):
 """
 ================== FUNCIONES DE TRANSACCIONES (SIMPLIFICADAS) ================
 """
+
 
 def registrar_ingresos(ingreso_total_actual):
     """
@@ -74,7 +82,9 @@ def registrar_ingresos(ingreso_total_actual):
     - float: El nuevo total de ingresos actualizado.
     """
     print("\n--- Registro de Ingresos ---")
-    return procesar_transacciones(ingreso_total_actual, lista_ingresos, "ingreso")
+    return procesar_transacciones(ingreso_total_actual,
+                                  lista_ingresos,
+                                  "ingreso")
 
 
 def registrar_egresos(egreso_total_actual):
@@ -88,20 +98,25 @@ def registrar_egresos(egreso_total_actual):
     - float: El nuevo total de egresos actualizado.
     """
     print("\n--- Registro de Egresos ---")
-    return procesar_transacciones(egreso_total_actual, lista_egresos, "egreso/gasto")
+    return procesar_transacciones(egreso_total_actual,
+                                  lista_egresos,
+                                  "egreso/gasto")
 
 
 """
-================== FUNCIONES AUXILIARES DE RESUMEN ============================
+================== FUNCIONES AUXILIARES DE RESUMEN ===========================
 """
+
 
 def imprimir_detalle_transacciones(titulo, lista_transacciones):
     """
-    Imprime en consola el detalle formateado de una lista de transacciones.
+    Imprime en consola el detalle formateado de una lista de
+    transacciones.
     
     Recibe:
     - titulo (str): El título a imprimir (ej. "Detalle de Ingresos").
-    - lista_transacciones (list): La lista (ingresos o egresos) a detallar.
+    - lista_transacciones (list): La lista (ingresos o egresos)
+      a detallar.
     """
     print(f"\n--- {titulo} ---")
     if not lista_transacciones:
@@ -122,9 +137,9 @@ def imprimir_balance(ingresos_totales, egresos_totales):
     """
     balance_actual = ingresos_totales - egresos_totales
     print("\n------------------------------")
-    print(f"Ingresos Totales:    ${ingresos_totales:.2f}")
-    print(f"Egresos Totales:     ${egresos_totales:.2f}")
-    print(f"Balance Actual:      ${balance_actual:.2f}")
+    print(f"Ingresos Totales:  ${ingresos_totales:.2f}")
+    print(f"Egresos Totales:   ${egresos_totales:.2f}")
+    print(f"Balance Actual:    ${balance_actual:.2f}")
     print("------------------------------")
 
 
@@ -137,7 +152,7 @@ def mostrar_resumen_final(ingresos_totales, egresos_totales):
     - egresos_totales (float): Total de egresos.
     """
     print("\n" + "=" * 30)
-    print("         RESUMEN FINANCIERO")
+    print("           RESUMEN FINANCIERO")
     print("=" * 30)
 
     imprimir_detalle_transacciones("Detalle de Ingresos", lista_ingresos)
@@ -146,8 +161,9 @@ def mostrar_resumen_final(ingresos_totales, egresos_totales):
 
 
 """
-================== FUNCIONES DEL MENÚ Y EJECUCIÓN =============================
+================== FUNCIONES DEL MENÚ Y EJECUCIÓN ============================
 """
+
 
 def mostrar_menu_principal():
     """
@@ -165,14 +181,13 @@ def mostrar_menu_principal():
     return opcion
 
 
-
 """
-================== FUNCIONES DEL MENÚ Y EJECUCIÓN =============================
+================== EJECUCIÓN PRINCIPAL ============================
 """
 
 ingreso_total = 0.0
 egreso_total = 0.0
-opcion_menu = -1 
+opcion_menu = -1
 
 while opcion_menu != 0:
     opcion_menu = mostrar_menu_principal()
@@ -186,7 +201,7 @@ while opcion_menu != 0:
     elif opcion_menu == 0:
         print("\nCalculando resumen final...")
     
-    else: 
+    else:
         print("ERROR: Opción no válida. Por favor, intenta de nuevo.")
         
 mostrar_resumen_final(ingreso_total, egreso_total)
